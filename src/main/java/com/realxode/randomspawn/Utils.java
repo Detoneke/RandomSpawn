@@ -4,9 +4,14 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.SplittableRandom;
+
 public class Utils {
 
     private final RandomSpawn main;
+    private final SplittableRandom splittableRandom = new SplittableRandom();
 
     public Utils(RandomSpawn main) {
         this.main = main;
@@ -34,6 +39,13 @@ public class Utils {
                 main.getConfig().getDouble("spawnpoints." + name + ".z"),
                 (float) main.getConfig().getDouble("spawnpoints." + name + ".yaw"),
                 (float) main.getConfig().getDouble("spawnpoints." + name + ".pitch"));
+    }
+
+    public String getRandomSpawnpoint() {
+        final List<String> list = new ArrayList<>(main.getConfig().getConfigurationSection("spawnpoints")
+                .getKeys(false));
+        int randomNumber = splittableRandom.nextInt(list.size());
+        return list.get(randomNumber);
     }
 
 }

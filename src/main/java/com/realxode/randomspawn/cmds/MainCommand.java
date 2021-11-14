@@ -60,6 +60,7 @@ public class MainCommand implements CommandExecutor {
                 player.teleport(utils.getSpawnpoint(spawnname));
                 player.sendMessage(color("&e&l[TELEPORTED!] &fYou got teleported to &7"
                         + spawnname + "&f spawnpoint!"));
+                player.sendMessage(color("&dRandom: " + utils.getRandomSpawnpoint()));
         }
         return false;
     }
