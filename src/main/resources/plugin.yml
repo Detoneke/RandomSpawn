@@ -1,0 +1,6 @@
+name: RandomSpawn
+version: '${project.version}'
+main: com.realxode.randomspawn.RandomSpawn
+api-version: 1.17
+authors: [ RealXode ]
+description: Random Spawn fork
